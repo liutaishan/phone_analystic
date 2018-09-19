@@ -11,13 +11,12 @@ import java.io.IOException;
 public class UserAgentUtil {
     public static final Logger logger= Logger.getLogger(UserAgentUtil.class);
 
-    static UASparser uasparser =null;
+    static UASparser uaSparser =null;
 
 
-    public static UserAgentInfo parseUserAgeent(){
 
-        return null;
-    }
+
+
     /**
      * 解析浏览器的user agent字符串,返回UserAgentInfo对象。
 
@@ -27,13 +26,13 @@ public class UserAgentUtil {
      * 要解析的user agent字符串
      * @return 返回具体的值
      */
-    public static UserAgentInfo analysticUserAgent(String userAgent) {
+    public static UserAgentInfo parseUserAgeent(String userAgent) {
         UserAgentInfo result = null;// 初始化一个浏览器信息类的对象
         if (!(userAgent == null || userAgent.trim().isEmpty())) {
 // 此时userAgent不为null,而且不是由全部空格组成的
             try {
                 cz.mallat.uasparser.UserAgentInfo info = null;// jar文件 UserAgentInfo对象
-                info = uasparser.parse(userAgent); // 使用parse方法解析
+                info = uaSparser.parse(userAgent); // 使用parse方法解析
                 result = new UserAgentInfo(); // 创建自定义 UserAgentInfo对象
                 result.setBrowserName(info.getUaFamily());// 将解析出对应的4种数据设置到对象属性中去
                 result.setBrowserVersion(info.getBrowserVersionInfo());
